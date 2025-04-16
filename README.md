@@ -2,7 +2,7 @@
 The ICS344 course project involves setting up and attacking a vulnerable service, analyzing the attack with a SIEM (Security Information and Event Management) platform, and proposing a defensive strategy.
 
 ## 🔹 Group Info
-- **Group Number**: Group X
+- **Group Number**: Group 8
 - **Students**:
   - Aishah Algharib — ID: 202167950
   - Rimas Alghamdi — ID: 202158930
