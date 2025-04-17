@@ -75,6 +75,17 @@ run
 ## Results:
 ![SSH Brute-force Result](screanshots/ssh-results.jpg)
 
+### The Metasploit ssh_login module successfully brute-forced SSH credentials on the Metasploitable3 target.
+
+* Target IP: 192.168.64.7
+
+* SSH Service was accessible on port 22
+
+- Valid credentials found:
+  - **Username:** `vagrant`
+  - **Password:** `vagrant`
+
+
 
 
 
