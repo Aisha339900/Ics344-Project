@@ -67,6 +67,7 @@ run
 ```
 
 ## Results:
+![SSH Brute-force Result](screanshots/ssh-results.jpg)
 
 
 
