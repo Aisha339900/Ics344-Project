@@ -20,7 +20,9 @@ Use the `auxiliary/scanner/ssh/ssh_login` module in Metasploit to brute-force SS
 
 ![user.txt & pass.txt files creation](screanshots/filesUserAndPass.png)
 
-### users.txt
+use ``` nano [name of the text file].txt ``` to edit the content of the file, add random usernames and passwords.
+
+### users.txt content
 
 ```text
 admin
@@ -30,7 +32,7 @@ vagrant
 aisha
 test
 ```
-### pass.txt
+### pass.txt contant
 ```text
 password
 123456
