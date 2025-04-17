@@ -18,6 +18,8 @@ Use the `auxiliary/scanner/ssh/ssh_login` module in Metasploit to brute-force SS
 
 ## Step 2: Create Wordlist Files
 
+![user.txt & pass.txt files creation](screanshots/filesUserAndPass.png)
+
 ### users.txt
 
 ```text
@@ -37,6 +39,7 @@ vagrant
 aishapass
 testpass
 ```
+![files contant](screanshots/filesContant.png)
 
 ## Step 3: Load the SSH Login Module
 
@@ -60,6 +63,7 @@ set BRUTEFORCE_SPEED 5
 set THREADS 4
 set VERBOSE true
 ```
+![set](screanshots/Settters.png)
 
 ## Step 5: Run the Attack
 ```text
