@@ -71,6 +71,11 @@ else
 fi
 ```
 
+### add the script using:
+```text
+nano script.sh
+```
+
 ![the Custom Script](screanshots/customScript.png)
 
 ---
