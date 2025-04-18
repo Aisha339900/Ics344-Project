@@ -31,7 +31,6 @@ vagrant
 aishapass
 testpass
 ```
-![files contant](screanshots/filesContant.png)
 
 ---
 
