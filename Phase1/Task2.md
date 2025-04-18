@@ -43,7 +43,7 @@ testpass
 
 # Define the target IP address and port
 TARGET_IP="192.168.64.7"  # target IP
-TARGET_PORT=22 # target IP
+TARGET_PORT=22 # target PORT
 
 # Define the path to the username and password files
 USER_LIST="users.txt"
