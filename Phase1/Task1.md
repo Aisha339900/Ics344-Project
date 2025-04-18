@@ -4,6 +4,7 @@ Task 1.1: Use Kali Linux tool Metasploit to compromise the SSH service Using Met
 
 ## Objective
 Use the `auxiliary/scanner/ssh/ssh_login` module in Metasploit to brute-force SSH credentials on the Metasploitable3 target machine.
+The objective of this task is to use Metasploit's ssh_login (`auxiliary/scanner/ssh/ssh_login`) module to perform a brute-force attack on the SSH service of a vulnerable machine (the Metasploitable3 target machine). The goal is to discover valid username and password combinations that allow unauthorized access to the system.
 
 ---
 
