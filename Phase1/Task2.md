@@ -1,7 +1,7 @@
 # Phase 1 - Task 1.2: Automate SSH Brute-Force Using Hydra
 
 ## Objective
-Compromise the service using a custom script that i created.
+The objective of this task is to automate the SSH brute-force process using a custom Bash script with Hydra (Hydra also known as THC-Hydra is a fast and flexible password-cracking tool used in ethical hacking and penetration testing). This script attempts to find valid login credentials by testing multiple username and password combinations, and logs successful attempts into an output file.
 
 ---
 
