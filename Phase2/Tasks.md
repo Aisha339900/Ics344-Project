@@ -24,7 +24,7 @@ Set up the following machines using VirtualBox:
 ifconfig
 ```
 
-![Output should include an IP like `192.168.56.104`](screenshots/Kali_IP.png)
+![Kali Linux IP is `192.168.56.104`](screanshots/Kali_IP.png)
 
 - On **Metasploitable3**, run:
 
@@ -40,7 +40,7 @@ sudo dhclient eth1
 ifconfig
 ```
 
-![the new IP is `192.168.56.105`](screenshots/Meta_IP.png)
+![Metasploitable3 IP is `192.168.56.105`](screanshots/Meta_IP.png)
 
 - Test connectivity:
 
@@ -50,8 +50,8 @@ ping 192.168.56.105 //in Kali Linux
 
 ```
 
-![VMs Connected](screenshots/Ping_on_Meta.png)
-![VMs Connected](screenshots/Ping_on_Kali.png)
+![VMs Connected](screanshots/Ping_on_Meta.png)
+![VMs Connected](screanshots/Ping_on_Kali.png)
 
 ---
 
@@ -63,7 +63,7 @@ Run from Kali:
 sudo nmap -sS -sV 192.168.56.105
 ```
 
-![Output showing open services, including SSH port 22](screenshots/Open_Ports.png)
+![Output showing open services, including SSH port 22](screanshots/Open_Ports.png)
 
 ---
 
@@ -164,7 +164,7 @@ sudo /opt/splunk/bin/splunk start --accept-license
 
 Open Splunk in browser: `http://localhost:8000`
 
-![Splunk web interface main page](screenshots/Splunk_Main_Page.png)
+![Splunk web interface main page](screanshots/Splunk_Main_Page.png)
 
 ### 2. Install Splunk Forwarder on Metasploitable3
 
@@ -180,7 +180,7 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 - Go to **Settings > Forwarding and Receiving**
 - Click **Add new receiving port** → enter `9997`
 
-![port 9997 is enabled in Splunk](screenshots/Port_9997.png)
+![port 9997 is enabled in Splunk](screanshots/Port_9997.png)
 
 ### 4. Connect Forwarder to Server
 
@@ -195,7 +195,7 @@ sudo /opt/splunkforwarder/bin/splunk restart
 sudo /opt/splunkforwarder/bin/splunk list forward-server
 ```
 
-![active forward to Splunk server IP and port](screenshots/Active.png)
+![active forward to Splunk server IP and port](screanshots/Active.png)
 
 ### 5. Monitor SSH Log File
 
@@ -203,7 +203,7 @@ sudo /opt/splunkforwarder/bin/splunk list forward-server
 sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log
 ```
 
-![Log file successfully added to monitor list](screenshots/Log.png)
+![Log file successfully added to monitor list](screanshots/Log.png)
 
 ---
 
@@ -216,7 +216,7 @@ cd ssh-brute
 ./script.sh
 ```
 
-![Hydra results](screenshots/Atack.png)
+![Hydra results](screanshots/Atack.png)
 
 ---
 
@@ -235,7 +235,7 @@ cd ssh-brute
 index=* source="/var/log/auth.log" "Failed password"
 ```
 
-![Logs showing failed login attempts](Failed/Atack.png)
+![Logs showing failed login attempts](screanshots/Failed/Atack.png)
 
 - Successful logins:
 
@@ -243,7 +243,7 @@ index=* source="/var/log/auth.log" "Failed password"
 index=* source="/var/log/auth.log" "Accepted password"
 ```
 
-![Logs showing successful login (vagrant)](Succesed/Atack.png)
+![Logs showing successful login (vagrant)](screanshots/Succesed/Atack.png)
 
 ---
 
