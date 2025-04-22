@@ -235,7 +235,7 @@ cd ssh-brute
 index=* source="/var/log/auth.log" "Failed password"
 ```
 
-![Logs showing failed login attempts](screanshots/Failed/Atack.png)
+![Logs showing failed login attempts](screanshots/Failed.png)
 
 - Successful logins:
 
@@ -243,7 +243,7 @@ index=* source="/var/log/auth.log" "Failed password"
 index=* source="/var/log/auth.log" "Accepted password"
 ```
 
-![Logs showing successful login (vagrant)](screanshots/Succesed/Atack.png)
+![Logs showing successful login (vagrant)](screanshots/Succesed.png)
 
 ---
 
