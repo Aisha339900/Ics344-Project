@@ -43,14 +43,14 @@ sudo nano /etc/fail2ban/jail.local
 ```
 ![nano jail.local](screenshots/nano-jail.local.png)
 ### and write the following:
-<br>enabled: activates protection for SSH.</br>
-<br>port: the SSH port to monitor.</br>
-<br>filter: uses the sshd fail2ban filter rules.</br>
-<br>logpath: log file to track failed logins.</br>
-<br>maxretry: number of failed attempts before banning.</br>
-<br>findtime: time window to count failures (in seconds).</br>
-<br>bantime: duration of ban (in seconds).</br>
-<br>action: firewall rule to block the attacker's IP (uses iptables).</br>
+- enabled: activates protection for SSH.
+- port: the SSH port to monitor.
+- filter: uses the sshd fail2ban filter rules.
+- logpath: log file to track failed logins.
+- maxretry: number of failed attempts before banning.
+- findtime: time window to count failures (in seconds).
+- bantime: duration of ban (in seconds).
+- action: firewall rule to block the attacker's IP (uses iptables).
 ```[sshd]
 enabled = true
 port = ssh
@@ -75,5 +75,5 @@ on the attack VM, run:
 ```
 ./script.sh
 ```
-
+![failed attack](screenshots/attack-failed.png)
 
