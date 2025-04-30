@@ -69,6 +69,7 @@ Check if the SSH jail is active and working:
 ```
 sudo fail2ban-client status sshd
 ```
+![fail2ban status](screenshots/fail2ban-status.png)
 ## 🧪 Step 5: Attack Again (Test the Defense)
 on the attack VM, run: 
 ```
