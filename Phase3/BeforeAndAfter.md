@@ -31,14 +31,15 @@ This attack was previously implemented in **Phase 1**, where a brute-force SSH s
 ./script.sh
 ```
 ![failed Attack](screenshots/attack-failed.png)
-check the connection: 
+check the connection & port: 
 ```bash
 nmap -p 22 192.168.64.3
 ```
-![connection status](screenshots/connection-after.png)
+![port connection status](screenshots/connection-after.png)
 ```bash
 ssh wronguser@192.168.64.3
 ```
+![connection refused](screenshots/refused-connection.png)
 
 check the status on Metasploitable3 victim machine: 
 ```bash
