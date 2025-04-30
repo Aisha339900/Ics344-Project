@@ -20,6 +20,7 @@ This attack was previously implemented in **Phase 1**, where a brute-force SSH s
 ```bash
 ./script.sh
 ```
+![valid Attack](screenshots/valid-attack.png)
 ### 🔁 After Applying Defense
 - The attack was blocked after 3 failed login attempts.
 - The attacker received a "connection refused" error.
@@ -29,6 +30,7 @@ This attack was previously implemented in **Phase 1**, where a brute-force SSH s
 ```bash
 ./script.sh
 ```
+![failed Attack](screenshots/attack-failed.png)
 check the connection: 
 ```bash
 nmap -p 22 192.168.64.3
@@ -38,4 +40,5 @@ check the status on Metasploitable3 victim machine:
 ```bash
 sudo fail2ban-client status sshd
 ```
+![status after](screenshots/status-after.png)
 
