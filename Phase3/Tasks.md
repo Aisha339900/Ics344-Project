@@ -17,10 +17,10 @@ The attack used a script with Hydra and weak credentials to access SSH.
 
 ---
 
-## 🛡️ Pahse 3 Defense: Using Fail2Ban
+## 🛡️ Pahse 3 Defense: Implement Security Tool - Using Fail2Ban
 
 To defend against this type of attack, we implement **Fail2Ban** on the victim machine.  
-This tool automatically bans an IP address after a number of failed SSH login attempts.
+This tool automatically bans an IP address after a number of failed SSH login attempts at specific time.
 
 ---
 
