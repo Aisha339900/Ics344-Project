@@ -30,6 +30,7 @@ This tool automatically bans an IP address after a number of failed SSH login at
 sudo apt update
 sudo apt install fail2ban -y
 ```
+![Install Fail2Ban](screenshots/install-fail2ban.png)
 ---
 
 ## ⚙️ Step 2: Configure `jail.local` for SSH Protection
@@ -40,6 +41,7 @@ First, we create a local configuration file based on the default one:
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo nano /etc/fail2ban/jail.local
 ```
+![nano jail.local](screenshots/nano-jail.local.png)
 ### and write the following:
 <br>enabled: activates protection for SSH.</br>
 <br>port: the SSH port to monitor.</br>
@@ -59,6 +61,7 @@ findtime = 600
 bantime = 3600
 action: iptables[name=SSH, port=ssh, protocol=tcp]
 ```
+![jail.local](screenshots/jail.local.png)
 ## 🔍 Step 4: Monitor Fail2Ban Status
 
 Check if the SSH jail is active and working:
