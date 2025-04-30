@@ -35,6 +35,10 @@ check the connection:
 ```bash
 nmap -p 22 192.168.64.3
 ```
+![connection status](screenshots/connection-after.png)
+```bash
+ssh wronguser@192.168.64.3
+```
 
 check the status on Metasploitable3 victim machine: 
 ```bash
