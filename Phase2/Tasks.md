@@ -203,7 +203,9 @@ sudo /opt/splunkforwarder/bin/splunk list forward-server
 sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log
 ```
 
-![Log file successfully added to monitor list](screanshots/Log.png)
+![Log file successfully added to monitor list](screanshots/Hosts.png)
+![Log file successfully added to monitor list](screanshots/Sources.png)
+![Log file successfully added to monitor list](screanshots/sourctypes.png)
 
 ---
 
@@ -276,6 +278,7 @@ index=* sourcetype="attacker_log"
 | 192.168.56.105 | vagrant  | vagrant  |
 
 ![Extracted Credentials](screanshots/Attacker_Extracted_Creds.png)
+![Extracted Credentials](screanshots/Attacker_Creds.png)
 
 ---
 
