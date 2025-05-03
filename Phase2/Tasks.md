@@ -239,8 +239,8 @@ index=* sourcetype=syslog "Failed password" | rex "user (?<user>\w+).*from (?<ip
 - A bar chart showing which usernames were attacked and from which source IP (`192.168.56.104`).
 - Total failed attempts: **65**
 
-![Failed Login Events Over Time](screanshots/Failed_Attempts_Timeline.png)
-![Failed Login Entries](screanshots/Failed_Logs_Table.png)
+![Failed Login Events Over Time](screanshots/Failed_Attempts_Timeline.png){ width=80% }
+![Failed Login Entries](screanshots/Failed_Logs_Table.png){ width=80% }
 
 ---
 
@@ -256,8 +256,8 @@ index=* sourcetype=syslog "Accepted password" | rex "for (?<user>\w+) from (?<ip
 
 - Shows the exact timestamp and attacker IP when a valid credential was found (`vagrant:vagrant` from `192.168.56.104`).
 
-![Accepted Login Chart](screanshots/Successful_Login_Bar.png)
-![Accepted Login Raw Event](screanshots/Successful_Login_Raw.png)
+![Accepted Login Chart](screanshots/Successful_Login_Bar.png){ width=80% }
+![Accepted Login Raw Event](screanshots/Successful_Login_Raw.png){ width=80% }
 
 ---
 
@@ -277,8 +277,8 @@ index=* sourcetype="attacker_log"
 | -------------- | -------- | -------- |
 | 192.168.56.105 | vagrant  | vagrant  |
 
-![Extracted Credentials](screanshots/Attacker_Extracted_Creds.png)
-![Extracted Credentials](screanshots/Attacker_Creds.png)
+![Extracted Credentials](screanshots/Attacker_Extracted_Creds.png){ width=80% }
+![Extracted Credentials](screanshots/Attacker_Creds.png){ width=80% }
 
 ---
 
