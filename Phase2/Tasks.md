@@ -220,53 +220,85 @@ cd ssh-brute
 
 ---
 
-### 7. Search Logs in Splunk
+### 7. Search Logs and Visualize the Attack in Splunk
 
-- Open: `http://localhost:8000`
-- Go to **Search & Reporting** > **Data Summary > Hosts**
-- Select: `metasploitable3`
-- Go to **Sources** → `/var/log/auth.log`
+After integrating logs from both the attacker (Kali) and the victim (Metasploitable3) machines, we performed structured searches and created visualizations in Splunk to analyze the SSH brute-force attack.
 
-#### Useful Searches:
+#### ✅ Search 1: Failed SSH Logins (Victim Perspective)
 
-- Failed logins:
+We used this query to extract failed login attempts:
 
 ```spl
-index=* source="/var/log/auth.log" "Failed password"
+index=* sourcetype=syslog "Failed password" | rex "user (?<user>\w+).*from (?<ip>\d+\.\d+\.\d+\.\d+)" | stats count by ip, user
 ```
 
-![Logs showing failed login attempts](screanshots/Failed.png)
+📊 **Visualization:**
 
-- Successful logins:
+- A bar chart showing which usernames were attacked and from which source IP (`192.168.56.104`).
+- Total failed attempts: **65**
 
-```spl
-index=* source="/var/log/auth.log" "Accepted password"
-```
-
-![Logs showing successful login (vagrant)](screanshots/Succesed.png)
+![Failed Login Events Over Time](screanshots/Failed_Attempts_Timeline.png)
+![Failed Login Entries](screanshots/Failed_Logs_Table.png)
 
 ---
 
-## Log Analysis (Detailed Explanation)
+#### ✅ Search 2: Successful Login Detection (Victim Perspective)
 
-### Service: SSH (`sshd`)
+To track the moment the attack succeeded:
 
-- SSH was the main target of the brute-force attack.
-- Hydra tested combinations from `users.txt` and `pass.txt`.
+```spl
+index=* sourcetype=syslog "Accepted password" | rex "for (?<user>\w+) from (?<ip>\d+\.\d+\.\d+\.\d+)" | table _time, user, ip
+```
 
-### Observed Log Behavior:
+📊 **Visualization:**
 
-- Over 180 total SSH log entries collected during the test window.
-- Consistent log pattern:
-  - Failed: `Failed password for invalid user ___`
-  - Success: `Accepted password for vagrant from 192.168.56.104 port 41862 ssh2`
+- Shows the exact timestamp and attacker IP when a valid credential was found (`vagrant:vagrant` from `192.168.56.104`).
 
-### Timeline Analysis:
+![Accepted Login Chart](screanshots/Successful_Login_Bar.png)
+![Accepted Login Raw Event](screanshots/Successful_Login_Raw.png)
 
-- The logs show a sequence of incorrect login attempts.
-- At the end of the sequence, Splunk captured a successful login.
-- The log clearly records the attack’s source IP and destination host.
+---
 
-#
+#### ✅ Search 3: Attacker Log Extraction from Kali
+
+The attacker machine had its logs forwarded via the Splunk Universal Forwarder. We parsed the Hydra output to see which credentials were found.
+
+```spl
+index=* sourcetype="attacker_log"
+| rex "host:\s(?<ip>\d+\.\d+\.\d+\.\d+).*login:\s(?<user>\w+).*password:\s(?<pass>\w+)"
+| table ip, user, pass
+```
+
+📊 **Table Output:**
+
+| IP             | Username | Password |
+| -------------- | -------- | -------- |
+| 192.168.56.105 | vagrant  | vagrant  |
+
+![Extracted Credentials](screanshots/Attacker_Extracted_Creds.png)
+
+---
+
+### 🔍 Log Behavior Summary
+
+- **Brute-force pattern clearly detected**: 65+ failed login attempts followed by 2 accepted logins.
+- **Source IP**: All attempts originated from `192.168.56.104` (Kali).
+- **Successful credentials**: Captured in both `/var/log/auth.log` and Hydra logs.
+- **Timeline**: Logs clearly illustrate the transition from failed to successful access.
+
+---
+
+### 📈 Final Visualization Summary
+
+We created the following Splunk visualizations:
+
+- Bar chart: Failed usernames by IP
+- Timechart: Frequency of failed attempts
+- Table: Extracted credentials from Hydra logs
+- Bar chart: Successful login by timestamp
+
+This demonstrates end-to-end visibility of the brute-force attack lifecycle from detection to compromise.
+
+---
 
 ---
