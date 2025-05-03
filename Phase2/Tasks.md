@@ -224,7 +224,7 @@ cd ssh-brute
 
 After integrating logs from both the attacker (Kali) and the victim (Metasploitable3) machines, we performed structured searches and created visualizations in Splunk to analyze the SSH brute-force attack.
 
-#### ✅ Search 1: Failed SSH Logins (Victim Perspective)
+#### Search 1: Failed SSH Logins (Victim Perspective)
 
 We used this query to extract failed login attempts:
 
@@ -232,7 +232,7 @@ We used this query to extract failed login attempts:
 index=* sourcetype=syslog "Failed password" | rex "user (?<user>\w+).*from (?<ip>\d+\.\d+\.\d+\.\d+)" | stats count by ip, user
 ```
 
-📊 **Visualization:**
+**Visualization:**
 
 - A bar chart showing which usernames were attacked and from which source IP (`192.168.56.104`).
 - Total failed attempts: **65**
@@ -242,7 +242,7 @@ index=* sourcetype=syslog "Failed password" | rex "user (?<user>\w+).*from (?<ip
 
 ---
 
-#### ✅ Search 2: Successful Login Detection (Victim Perspective)
+#### Search 2: Successful Login Detection (Victim Perspective)
 
 To track the moment the attack succeeded:
 
@@ -250,7 +250,7 @@ To track the moment the attack succeeded:
 index=* sourcetype=syslog "Accepted password" | rex "for (?<user>\w+) from (?<ip>\d+\.\d+\.\d+\.\d+)" | table _time, user, ip
 ```
 
-📊 **Visualization:**
+**Visualization:**
 
 - Shows the exact timestamp and attacker IP when a valid credential was found (`vagrant:vagrant` from `192.168.56.104`).
 
@@ -259,7 +259,7 @@ index=* sourcetype=syslog "Accepted password" | rex "for (?<user>\w+) from (?<ip
 
 ---
 
-#### ✅ Search 3: Attacker Log Extraction from Kali
+#### Search 3: Attacker Log Extraction from Kali
 
 The attacker machine had its logs forwarded via the Splunk Universal Forwarder. We parsed the Hydra output to see which credentials were found.
 
@@ -269,7 +269,7 @@ index=* sourcetype="attacker_log"
 | table ip, user, pass
 ```
 
-📊 **Table Output:**
+**Table Output:**
 
 | IP             | Username | Password |
 | -------------- | -------- | -------- |
@@ -279,7 +279,7 @@ index=* sourcetype="attacker_log"
 
 ---
 
-### 🔍 Log Behavior Summary
+### Log Behavior Summary
 
 - **Brute-force pattern clearly detected**: 65+ failed login attempts followed by 2 accepted logins.
 - **Source IP**: All attempts originated from `192.168.56.104` (Kali).
@@ -288,7 +288,7 @@ index=* sourcetype="attacker_log"
 
 ---
 
-### 📈 Final Visualization Summary
+### Final Visualization Summary
 
 We created the following Splunk visualizations:
 
@@ -298,7 +298,5 @@ We created the following Splunk visualizations:
 - Bar chart: Successful login by timestamp
 
 This demonstrates end-to-end visibility of the brute-force attack lifecycle from detection to compromise.
-
----
 
 ---
